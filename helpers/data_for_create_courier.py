@@ -42,4 +42,4 @@ class GenerateData:
     @staticmethod
     def delete_courier(data):
         response = requests.post(f'https://qa-scooter.praktikum-services.ru/api/v1/courier/login', data={'login': data['login'], 'password': data['password']})
-        a = requests.delete(f'https://qa-scooter.praktikum-services.ru/api/v1/courier/{response.json()['id']}')
+        requests.delete(f'https://qa-scooter.praktikum-services.ru/api/v1/courier/{response.json()['id']}')
