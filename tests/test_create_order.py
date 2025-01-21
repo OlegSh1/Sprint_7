@@ -21,4 +21,5 @@ class TestCreateOrder:
 
     def test_response_contains_track(self):
         response = requests.post(f'{Constants.base_url_page}{Constants.path_create_order}', data=GenerateData.crate_data_for_create_order([]))
-        assert 'track' in response.json() and response.status_code == 201
+        assert 'track' in response.json()
+        assert response.status_code == 201

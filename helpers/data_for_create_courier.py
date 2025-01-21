@@ -1,6 +1,7 @@
 import random
 import string
 
+import requests
 
 
 class GenerateData:
@@ -37,3 +38,8 @@ class GenerateData:
             "comment": "Saske, come back to Konoha",
             "color": color
         }
+
+    @staticmethod
+    def delete_courier(data):
+        response = requests.post(f'https://qa-scooter.praktikum-services.ru/api/v1/courier/login', data={'login': data['login'], 'password': data['password']})
+        a = requests.delete(f'https://qa-scooter.praktikum-services.ru/api/v1/courier/{response.json()['id']}')
